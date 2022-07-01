@@ -1,6 +1,6 @@
 # guidelines
 实验室工作指南
-
+- SNNUBIAI: Shaanxi Normal University Brain Inspired AI
 ## 实用技能
 - Git [教程](https://geeeeeeeeek.github.io/git-recipes/)  最新可能遇到的access token问题请参考[access token](https://blog.csdn.net/yjw123456/article/details/119696726)
 - remote ssh，是vscode的一个插件，可以远程连接实验室的工作站，可参考[remote development](https://blog.csdn.net/qq_38120851/article/details/107696066)配置。
