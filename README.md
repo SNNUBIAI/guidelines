@@ -4,6 +4,7 @@
 ## 实用技能
 - Git [教程](https://geeeeeeeeek.github.io/git-recipes/)  最新可能遇到的access token问题请参考[access token](https://blog.csdn.net/yjw123456/article/details/119696726)
 - remote ssh，是vscode的一个插件，可以远程连接实验室的工作站，可参考[remote development](https://blog.csdn.net/qq_38120851/article/details/107696066)配置。
+- [LaTeX使用指南](docs/latex_guideline.md)
 
 ## 代码提交规范
 - 变量命名，尽可能全，不要缩写，可参考下划线命名法如`load_data`或者驼峰命名法如`loadData`。不要`ld`这样的缩写。
