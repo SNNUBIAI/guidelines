@@ -5,14 +5,16 @@
 	<title>SNNU Brain Inspired AI</title>
 	<link rel="stylesheet" href="css/github-markdown.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/base-style.css">
-    <script src="js/marked.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script>
         MathJax = {
-          tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
         };
     </script>
-    <script id="MathJax-script" async src="js/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="js/tex-chtml.js"></script>
+    <script src="js/marked.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -30,11 +32,19 @@
 			fetch(url)
 				.then(response => response.text())
 				.then(data => {
+                    const renderer = new marked.Renderer();
+                    renderer.options = {
+                        // ... other options ...
+                        math: true,
+                        // ... other options ...
+                    };
 					// Convert markdown to HTML using marked.js
-					const html = marked.parse(data);
+					const html = marked.parse(data, { renderer });
 
 					// Update the content of the #content element
 					document.getElementById('content').innerHTML = html;
+
+                    MathJax.typesetPromise().catch(err => console.log(err));
 				})
 				.catch(error => {
 					console.error(`Error loading ${url}`, error);
@@ -44,12 +54,21 @@
 		fetch('./README.md')
 			.then(response => response.text())
 			.then(data => {
+                const renderer = new marked.Renderer();
+                renderer.options = {
+                    // ... other options ...
+                    math: true,
+                    // ... other options ...
+                };
 				// Convert markdown to HTML using marked.js
-				const html = marked.parse(data);
+				const html = marked.parse(data, { renderer });
 
 				// Update the content of the #content element
 				document.getElementById('content').innerHTML = html;
+
+                MathJax.typesetPromise().catch(err => console.log(err));
 			});
+            
         
         document.addEventListener('click', event => {
 			if (event.target.tagName === 'A' && event.target.href.endsWith('.md')) {
